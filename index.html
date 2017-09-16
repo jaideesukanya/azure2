@@ -39,33 +39,30 @@
 			});
 		});*/
 		
-		(new Formio('https://gtdcbfvemyajgpb.form.io/substringright')).loadForm().then(function(form){
-		  		var url = 'https://substringrightapi.azure-api.net/SubStringRight/SubStringRight';
-				url += '?a=';
-				url += form.submission.data.input1;
-				url += '&b=';
-				url += form.submission.data.input2;
-				alert('url = '+url);
-				$.ajax({
-					url: url,
-					beforeSend: function(xhrObj){
-						//Request headers
-					},
-					type: "GET"
-				}).done(function(data){
-					console.log(data);
-					//submission.data.result = 'test';
-					
-					var value = JSON.stringify(data);
-					form.submission = {
-				             data: {
-				                output : value.result
-				             }
-				    }
-				}).fail(function(err){
-					console.log(err)
-				});
-		});
+		var url = 'https://lfazuretestapi.azure-api.net/LfSubstring/subStringRight?a=';
+        url += form.submission.data.input1;
+        url += '&b=';
+        url += form.submission.data.input2;
+        //alert('url = '+url);
+        $.ajax({
+            url: url,
+            beforeSend: function(xhrObj){
+                //Request headers
+            },
+            type: "GET"
+        }).done(function(data){
+            //console.log(data)
+            //form.submission.data.result = data.result;
+            var value = JSON.stringify(data.Result); 
+            console.log(value);   
+            form.submission = { data: {
+                input1: form.submission.data.input1,  
+                input2: form.submission.data.input2,
+                result: value
+                }};  
+        }).fail(function(err){
+            console.log(err)
+        });
 
  	 </script>
  	 <script type='text/javascript'>
