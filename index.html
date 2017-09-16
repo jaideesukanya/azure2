@@ -43,7 +43,7 @@
         url += form.submission.data.input1;
         url += '&b=';
         url += form.submission.data.input2;
-        //alert('url = '+url);
+        console.log('url = '+url);
         $.ajax({
             url: url,
             beforeSend: function(xhrObj){
