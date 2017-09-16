@@ -7,15 +7,10 @@
   	<script type="text/javascript" language="javascript" src="index.json"></script>
   	
   	<script>
- 		 <!-- (new Formio('https://mgnnotdderlfrsk.form.io/add')).loadForm().then(function(form){ -->
-  		(new Formio('https://eleojoksajzgmiv.form.io/calc')).loadForm().then(function(form){
+  		/*(new Formio('https://gtdcbfvemyajgpb.form.io/substringright')).loadForm().then(function(form){
 			Formio.createForm(document.getElementById('formio'), form).then(function(instance){
 				instance.on('submit', function(submission){
-					//var url = 'https://testapimgmtalfsasa1.azure-api.net/calc/add?a=';
-					//var url = 'https://lfazuretestapi.portal.azure-api.net/calc/add?a='; wrong URL
-					
-					//var url = 'https://lfazuretestapi.azure-api.net/add?a='; First working API LT
-					var url = 'https://lfazuretestapi.azure-api.net/LfSubstring/subStringRight';
+					var url = 'https://substringrightapi.azure-api.net/SubStringRight/SubStringRight';
 					url += '?a=';
 					url += submission.data.input1;
 					url += '&b=';
@@ -29,19 +24,54 @@
 						type: "GET"
 					}).done(function(data){
 						console.log(data);
-						form.submission.data.result = 'test';
+						//submission.data.result = 'test';
+						
+						var value = JSON.stringify(data);
+						form.submission = {
+					             data: {
+					                output : value.result
+					             }
+					    }
 					}).fail(function(err){
 						console.log(err)
 					});
 				});
 			});
-		});
+		});*/
+		
+		
+		  		/*var url = 'https://substringrightapi.azure-api.net/SubStringRight/SubStringRight';
+				url += '?a=';
+				url += form.submission.data.input1;
+				url += '&b=';
+				url += form.submission.data.input2;
+				alert('url = '+url);
+				$.ajax({
+					url: url,
+					beforeSend: function(xhrObj){
+						//Request headers
+					},
+					type: "GET"
+				}).done(function(data){
+					console.log(data);
+					//submission.data.result = 'test';
+					
+					var value = JSON.stringify(data);
+					form.submission = {
+				             data: {
+				                output : value.result
+				             }
+				    }
+				}).fail(function(err){
+					console.log(err)
+				});*/
+  		
 
  	 </script>
  	 <script type='text/javascript'>
    		 window.onload = function () {
    			alert('window onload2');
-      		//Formio.createForm(document.getElementById('formio'), formdata);
+      		Formio.createForm(document.getElementById('formio'), formdata);
     	};
   	</script>
   </head>
